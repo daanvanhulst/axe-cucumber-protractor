@@ -1,6 +1,6 @@
 {
   "name": "axe-cucumber-protractor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Protractor plugin for running axe with cucumber support.",
   "main": "index.ts",
   "types": "dist/steps.d.ts",
