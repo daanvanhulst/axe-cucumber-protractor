@@ -1,4 +1,4 @@
-# axe-protractor
+# axe-cucumber-protractor
 
 Copy of dequelabs/axe-matchers in Ruby in TypeScript. 
 
