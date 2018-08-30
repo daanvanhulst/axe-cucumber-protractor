@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Protractor plugin for running axe with cucumber support.",
   "main": "index.ts",
+  "types": "dist/steps.d.ts",
   "scripts": {
     "compile": "tsc",
     "test": "npm run test"
