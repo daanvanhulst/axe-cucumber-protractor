@@ -1,9 +1,8 @@
 # axe-protractor
 
-<<<<<<< HEAD
-POC for running axe within Protactor with Cucumber support
-=======
-Shameless copy of dequelabs/axe-matchers in Ruby in TypeScript. TODO: see what still applies
+Copy of dequelabs/axe-matchers in Ruby in TypeScript. 
+
+TODO: see what still applies
 
 # Cucumber
 
