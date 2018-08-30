@@ -1,7 +1,7 @@
 {
-  "name": "axe-protractor",
+  "name": "axe-cucumber-protractor",
   "version": "0.0.1",
-  "description": "Protractor plugin for running axe",
+  "description": "Protractor plugin for running axe with cucumber support.",
   "main": "index.ts",
   "scripts": {
     "compile": "tsc",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daanvanhulst/axe-protractor.git"
+    "url": "git+https://github.com/daanvanhulst/axe-cucumber-protractor.git"
   },
   "keywords": [
     "axe",
@@ -18,9 +18,9 @@
   "author": "Daan van Hulst",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daanvanhulst/axe-protractor/issues"
+    "url": "https://github.com/daanvanhulst/axe-cucumber-protractor/issues"
   },
-  "homepage": "https://github.com/daanvanhulst/axe-protractor#readme",
+  "homepage": "https://github.com/daanvanhulst/axe-cucumber-protractor#readme",
   "dependencies": {
     "@types/axe-webdriverjs": "^2.0.0",
     "@types/cucumber": "^4.0.4",
