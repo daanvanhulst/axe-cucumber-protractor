@@ -41,7 +41,7 @@ Then(regex, async (negate: any, inclusion: any, exclusion: any, tags: any, run_o
             }
         }
 
-        driver.quit()
+        driver.quit();
 
         return expect(result.violations.length).to.equal(0);
     } finally {
