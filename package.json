@@ -6,7 +6,8 @@
   "types": "dist/steps.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "npm run test"
+    "test": "npm run test",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
