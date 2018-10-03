@@ -1,40 +1,30 @@
 # axe-cucumber-protractor
 
-Copy of dequelabs/axe-matchers in Ruby in TypeScript. 
+Implementation based on dequelabs/axe-matchers in Ruby. This allows axe to be used in protractor with cucumber feature files.
 
-TODO: see what still applies
+## Installation
 
-# Cucumber
+`npm install --save axe-cucumber-protractor`
+or
+`yarn add axe-cucumber-protractor`
 
-## Configuration
+## example usage
 
-1. Require step definitions:
+In your step file, import:
 
-    ``` ruby
-    # in features/support/env.rb
-    require 'axe/cucumber/step_definitions'
-    ```
+`import 'axe-cucumber-protractor'`
+or
+`require('axe-cucumber-protractor')`
 
-2. Configure Browser/WebDriver
+Then in a feature file:
 
-    If there exists a `page` method on the Cucumber `World` (as is provided by the Capybara DSL), or if one of `@page`, `@browser`, `@driver` or `@webdriver` exist, then no configuration is necessary.  Otherwise, the browser object must be configured manually.
+```
+Feature: my page
+    Scenario: my page that should be accessible
+        Given the page should be accessible according to: wcaga
+```
 
-    The browser/page object can be provided directly. Alternatively, when you don't have access to the instantiated driver, the variable or method name can be given as a String/Symbol.
-
-    ``` ruby
-    @firefox = Selenium::WebDriver.for :firefox
-
-    Axe.configure do |c|
-      # browser object
-      c.page = @firefox
-
-      # or variable name
-      c.page = :@firefox
-
-      # or method name
-      c.page = :firefox
-    end
-    ```
+# API
 
 ## Built-In Accessibility Cucumber Steps
 
@@ -44,7 +34,7 @@ To construct an axe accessibility Cucumber step, begin with the base step, and a
 
 ### Base Step
 
-``` gherkin
+```
 Then the page should be accessible
 ```
 
@@ -52,7 +42,7 @@ The base step is the core component of the step. It is a complete step on its ow
 
 ### Inclusion clause
 
-``` gherkin
+```
 Then the page should be accessible within "#selector"
 ```
 
@@ -62,7 +52,7 @@ The inclusion clause (`within "#selector"`) specifies which elements of the page
 
 ### Exclusion clause
 
-``` gherkin
+```
 Then the page should be accessible excluding "#selector"
 ```
 
@@ -72,14 +62,14 @@ The exclusion clause (`excluding "#selector"`) specifies which elements of the d
 
 If desired, a semicolon (`;`) or the word `but` may be used to separate the exclusion clause from the inclusion clause (if present).
 
-``` gherkin
+```
 Then the page should be accessible within "main"; excluding "aside"
 Then the page should be accessible within "main" but excluding "aside"
 ```
 
 ### Accessibility Standard (Tag) clause
 
-``` gherkin
+```
 Then the page should be accessible according to: tag-name
 ```
 
@@ -89,13 +79,13 @@ The acceptable [tag names are documented][options-param] as well as a [complete 
 
 If desired, a semicolon (`;`) may be used to separate the tag clause from the preceding clause.
 
-``` gherkin
+```
 Then the page should be accessible within "#header"; according to: best-practice
 ```
 
 ### Checking Rules clause
 
-``` gherkin
+```
 Then the page should be accessible checking: ruleId
 ```
 
@@ -105,14 +95,14 @@ The checking-rules clause specifies which *additional* rules to run (in addition
 
 If desired, a semicolon (`;`) or the word `and` may be used to separate the checking-rules clause from the preceding clause.
 
-``` gherkin
+```
 Then the page should be accessible according to: wcag2a; checking: color-contrast
 Then the page should be accessible according to: wcag2a and checking: color-contrast
 ```
 
 #### Exclusive Rules clause
 
-``` gherkin
+```
 Then the page should be accessible checking only: ruleId
 ```
 
@@ -120,7 +110,7 @@ This clause is not really a separate clause. But rather, by adding the word `onl
 
 ### Skipping Rules clause
 
-``` gherkin
+```
 Then the page should be accessible skipping: ruleId
 ```
 
@@ -130,14 +120,14 @@ The skipping-rules clause specifies which rules to skip. This allows an accessib
 
 If desired, a semicolon (`;`) or the word `but` may be used to separate the skipping-rules clause from the preceding clause.
 
-``` gherkin
+```
 Then the page should be accessible according to: wcag2a; skipping: accesskeys
 Then the page should be accessible according to: wcag2a but skipping: accesskeys
 ```
 
 ## Examples
 
-``` gherkin
+```
 Then the page should be accessible within "main, header" but excluding "footer"
 
 Then the page should be accessible excluding "#sidebar" according to: wcag2a, wcag2aa but skipping: color-contrast
@@ -160,4 +150,3 @@ Then the page should be accessible according to: best-practice and checking: ari
 [rules]: https://github.com/dequelabs/axe-core/blob/master/doc/rule-descriptions.md
 
 [css selector]: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors
->>>>>>> Add initial working example
