@@ -8,7 +8,7 @@ Implementation based on dequelabs/axe-matchers in Ruby. This allows axe to be us
 or
 `yarn add axe-cucumber-protractor`
 
-## example usage
+## Example usage
 
 In your step file, import:
 
@@ -23,6 +23,21 @@ Feature: my page
     Scenario: my page that should be accessible
         Given the page should be accessible according to: wcaga
 ```
+
+## Features
+
+This package has been made with one simple goal in mind, to run axe with protractor through the usage of cucumber feature files on Chrome. But because it is not much extra work to also make other features available, the setup has been made in a way that everything can be added. This status overview shows what you can use it for:
+
+| Feature  	        | Options  	| default   	| Status  	        |   	|
+|---	            |---	    |---	        |---	            |---	|
+| negate            | not  	    | - 	        | Not implemented  	|   	|
+| including         |   	    | [] (default)  | Implemented       |    	|
+| excluding         |   	    | [] (default)  | Implemented       |       |
+| according to      |           | ['wcag2a']   	| Implemented       |   	|
+| with rules	    |   	    | [] (default)  | Implemented   	|       |
+| Skipping rules    |   	    | [] (default)  | Implemented       |    	|
+| Options           |   	    | -  	        | Not implemented   |    	|
+| Browser        	|   	    | Chrome        | Just Chrome       |    	|
 
 # API
 
