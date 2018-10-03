@@ -23,14 +23,15 @@
   },
   "homepage": "https://github.com/daanvanhulst/axe-cucumber-protractor#readme",
   "dependencies": {
-    "@types/axe-webdriverjs": "^2.0.0",
-    "@types/cucumber": "^4.0.4",
-    "@types/protractor": "^4.0.0",
-    "@types/selenium-webdriver": "^3.0.10",
-    "axe-webdriverjs": "^2.0.1",
-    "chai": "^4.1.2",
-    "cucumber": "^4.2.1",
-    "protractor": "^5.4.0",
-    "selenium-webdriver": "^3.6.0"
+    "@types/axe-webdriverjs": "2.0.0",
+    "@types/cucumber": "4.0.4",
+    "@types/protractor": "4.0.0",
+    "@types/selenium-webdriver": "3.0.10",
+    "axe-webdriverjs": "2.0.1",
+    "chai": "4.1.2",
+    "chalk": "2.4.1",
+    "cucumber": "5.0.1",
+    "protractor": "5.4.1",
+    "selenium-webdriver": "3.6.0"
   }
 }
