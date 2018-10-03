@@ -5,7 +5,7 @@
   "main": "dist/steps.js",
   "types": "dist/steps.d.ts",
   "scripts": {
-    "compile": "tsc",
+    "build": "tsc",
     "test": "npm run test"
   },
   "repository": {
