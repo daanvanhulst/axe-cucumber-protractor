@@ -13,19 +13,12 @@ Then(regex, async (negate: any, inclusion: any, exclusion: any, tags: any, run_o
     const include = inclusion ? inclusion.split(',') : [];
     const exclude = exclusion ? exclusion.split(',') : [];
     const withTags = tags ? tags.split(','): ['wcag2a'];
-    const rules = run_rules ? run_rules.split(','): [];
+    const rules = run_rules ? run_rules.split(',') : [];
     const skipRules = skip_rules ? skip_rules.split(','): [];
 
     const driver = new WebDriver.Builder()
         .forBrowser('chrome')
         .build();
-
-    console.log('shouldNegate: ', shouldNegate);
-    console.log('include: ', include.join());
-    console.log('exclude: ', exclude.join());
-    console.log('withTags: ', withTags.join());
-    console.log('rules: ', rules.join());
-    console.log('skipRules: ', skipRules.join());
 
     try {
         AxeBuilder(driver)
