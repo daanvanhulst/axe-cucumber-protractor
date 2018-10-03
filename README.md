@@ -31,9 +31,10 @@ This package has been made with one simple goal in mind, to run axe with protrac
 | Feature  	        | Options  	| default   	| Status  	        |   	|
 |---	            |---	    |---	        |---	            |---	|
 | negate            | not  	    | - 	        | Not implemented  	|   	|
-| including         |   	    | [] (default)  | Implemented       |    	|
-| excluding         |   	    | [] (default)  | Implemented       |       |
+| include           |   	    | [] (default)  | Implemented       |    	|
+| exclude           |   	    | [] (default)  | Implemented       |       |
 | according to      |           | ['wcag2a']   	| Implemented       |   	|
+| run only   	    |   	    | -             | Not Implemented  	|       |
 | with rules	    |   	    | [] (default)  | Implemented   	|       |
 | Skipping rules    |   	    | [] (default)  | Implemented       |    	|
 | Options           |   	    | -  	        | Not implemented   |    	|

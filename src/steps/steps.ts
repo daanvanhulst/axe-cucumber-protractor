@@ -9,17 +9,31 @@ const expect = require('chai').use(require('chai-as-promised')).expect;
 const regex = /^(?:the page should( not)? be accessible)(?:;? within "(.*?)")?(?:;?(?: but)? excluding "(.*?)")?(?:;? according to: (.*?))?(?:;?(?: and)? checking( only)?: (.*?))?(?:;?(?: but)? skipping: (.*?))?(?:;? with options: (.*?))?$/;
 
 Then(regex, async (negate: any, inclusion: any, exclusion: any, tags: any, run_only: any, run_rules: any, skip_rules: any, options: any) => {
-    const withTags = tags || 'wcag2a';
+    const shouldNegate = !!(negate && negate.trim() === 'not');
+    const include = inclusion ? inclusion.split(',') : [];
+    const exclude = exclusion ? exclusion.split(',') : [];
+    const withTags = tags ? tags.split(','): ['wcag2a'];
+    const rules = run_rules ? run_rules.split(','): [];
+    const skipRules = skip_rules ? skip_rules.split(','): [];
 
     const driver = new WebDriver.Builder()
         .forBrowser('chrome')
         .build();
 
+    console.log('shouldNegate: ', shouldNegate);
+    console.log('include: ', include.join());
+    console.log('exclude: ', exclude.join());
+    console.log('withTags: ', withTags.join());
+    console.log('rules: ', rules.join());
+    console.log('skipRules: ', skipRules.join());
+
     try {
         AxeBuilder(driver)
-        // .include(inclusion)
-        // .exclude(exclusion)
-            .withTags(withTags);
+            .include(include)
+            .exclude(exclude)
+            .withTags(withTags)
+            .withRules(rules)
+            .disableRules(skipRules);
 
         const result = await AxeBuilder(browser.driver).analyze();
 
