@@ -16,19 +16,14 @@ Then(regex, async (negate: any, inclusion: any, exclusion: any, tags: any, run_o
     const rules = run_rules ? run_rules.split(',') : [];
     const skipRules = skip_rules ? skip_rules.split(','): [];
 
-    const driver = new WebDriver.Builder()
-        .forBrowser('chrome')
-        .build();
-
     try {
-        AxeBuilder(driver)
-            .include(include)
-            .exclude(exclude)
+        const result = await AxeBuilder(browser.driver)
+            // .include(include)
+            // .exclude(exclude)
             .withTags(withTags)
-            .withRules(rules)
-            .disableRules(skipRules);
-
-        const result = await AxeBuilder(browser.driver).analyze();
+            // .withRules(rules)
+            .disableRules(skipRules)
+            .analyze();
 
         if (result.violations.length > 0) {
             console.log(chalk.red(`Axe ${result.violations.length} violations found`));
@@ -41,12 +36,12 @@ Then(regex, async (negate: any, inclusion: any, exclusion: any, tags: any, run_o
             }
         }
 
-        driver.quit();
+        // driver.quit();
 
         return expect(result.violations.length).to.equal(0);
     } finally {
-        if (driver && driver.quit) {
-            driver.quit();
-        }
+        // if (driver && driver.quit) {
+        //     driver.quit();
+        // }
     }
 });
